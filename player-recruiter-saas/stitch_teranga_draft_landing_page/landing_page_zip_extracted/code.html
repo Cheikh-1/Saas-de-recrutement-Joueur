@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="fr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Teranga Draft — La passerelle du football sénégalais</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              dark: '#0d1410',
+              card: '#141d17',
+              lime: '#a8e600',
+              'lime-hover': '#95cc00',
+              dim: '#9aa89e',
+              border: 'rgba(255, 255, 255, 0.08)',
+              glass: 'rgba(20, 29, 23, 0.65)'
+            }
+          },
+          fontFamily: {
+            sans: ['"Space Grotesk"', 'Inter', 'system-ui', 'sans-serif'],
+            body: ['Inter', 'sans-serif']
+          },
+          boxShadow: {
+            'glow-lime': '0 0 60px -15px rgba(168, 230, 0, 0.35)',
+            'phone': '0 35px 80px -20px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.08)'
+          }
+        }
+      }
+    }
+  </script>
+<style data-purpose="custom-layout">body {
+    background-color: #080d0a;
+    color: #f2f4ef;
+    overflow-x: hidden
+    }
+.hero-glow-radial {
+    background: radial-gradient(circle at 50% 30%, rgba(168, 230, 0, 0.18) 0%, rgba(13, 20, 16, 0.05) 55%, transparent 75%)
+    }
+.section-glow-radial {
+    background: radial-gradient(circle at 50% 50%, rgba(168, 230, 0, 0.12) 0%, rgba(13, 20, 16, 0.02) 60%, transparent 80%)
+    }
+.stadium-bg {
+    background-image: radial-gradient(circle at center, rgba(13, 20, 16, 0.72) 0%, #080d0a 100%), url(https://lh3.googleusercontent.com/aida-public/AB6AXuCitFKwzQ8EyW77SNpBofsfYv0d7I6Wuz5FbQRjJjKmq4KNCt-5NAXZw5w4yoKMrlYBwxNckH5EO2s8e9xMuEEf7sG9Q_r-iS1D_LqSuhT6H-t21ctNTWeUFGoleO9H2p6_LkVAZ2M3WJuRWQAtss9nBHzAm3HxZOXuimVYZzULa6wLCRHDLwl3ESCGHP5oQ9Hyxmo6OQNkTY_XD_rK2yDhgfDcxMJP9PD1Ery1Ry_uBKXCNomdZaq1);
+    background-size: cover;
+    background-position: center 25%
+    }
+.glass-panel {
+    background: rgba(18, 26, 21, 0.68);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.09)
+    }
+.glass-nav-pill {
+    background: rgba(14, 21, 17, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1)
+    }
+.phone-horizontal-frame {
+    border: 10px solid #1a241e;
+    border-radius: 40px;
+    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.9), 0 0 45px rgba(168, 230, 0, 0.12)
+    }</style>
+</head>
+<body class="font-sans antialiased min-h-screen relative flex flex-col justify-between selection:bg-brand-lime selection:text-black">
+<!-- Background Ambience & Lighting -->
+<div class="fixed inset-0 stadium-bg pointer-events-none opacity-40 z-0"></div>
+<div class="fixed top-0 left-1/2 -translate-x-1/2 w-[1100px] h-[750px] hero-glow-radial pointer-events-none z-0"></div>
+<div class="fixed -top-40 left-1/2 -translate-x-1/2 text-[14vw] font-extrabold text-white/[0.015] tracking-widest uppercase select-none pointer-events-none z-0">
+    TERANGA
+  </div>
+<!-- BEGIN: MainHeader -->
+<header class="w-full pt-6 px-4 sm:px-8 relative z-30 max-w-7xl mx-auto">
+<!-- Floating Navigation Bar -->
+<nav class="glass-nav-pill rounded-full p-2 pl-3 flex items-center justify-between shadow-2xl transition-all" data-purpose="navigation-bar">
+<!-- Brand Logo -->
+<a class="flex items-center gap-3 group focus:outline-none" href="#">
+<div class="w-9 h-9 rounded-xl bg-brand-lime flex items-center justify-center font-extrabold text-brand-dark tracking-tight text-base shadow-[0_0_15px_rgba(168,230,0,0.5)] transition group-hover:scale-105">
+          TD
+        </div>
+<span class="font-bold tracking-wider text-sm sm:text-base uppercase text-white font-sans">
+          TERANGA <span class="text-brand-lime font-extrabold">DRAFT</span>
+</span>
+</a>
+<!-- Center Links (Desktop Pill Tabs) -->
+<div class="hidden md:flex items-center gap-1.5 px-2 py-1 rounded-full bg-black/30 border border-white/5">
+<a class="px-5 py-2 rounded-full bg-brand-lime text-brand-dark font-semibold text-xs uppercase tracking-wider transition hover:brightness-105 shadow-sm" href="#">
+          Accueil
+        </a>
+<a class="px-4 py-2 rounded-full text-brand-dim text-xs font-medium hover:text-white transition hover:bg-white/5" href="#joueurs">
+          Joueurs
+        </a>
+<a class="px-4 py-2 rounded-full text-brand-dim text-xs font-medium hover:text-white transition hover:bg-white/5" href="#comment-ca-marche">
+          Fonctionnement
+        </a>
+<a class="px-4 py-2 rounded-full text-brand-dim text-xs font-medium hover:text-white transition hover:bg-white/5" href="#assistant-ia">
+          Assistant IA
+        </a>
+<a class="px-4 py-2 rounded-full text-brand-dim text-xs font-medium hover:text-white transition hover:bg-white/5" href="#tarifs">
+          Tarifs
+        </a>
+</div>
+<!-- Right Action CTA -->
+<div>
+<a class="inline-flex items-center gap-2 bg-white text-brand-dark px-5 py-2.5 rounded-full font-bold text-xs tracking-wide uppercase hover:bg-brand-lime transition-all duration-300 transform hover:-translate-y-0.5 shadow-md" href="#tarifs">
+<span>Créer mon profil</span>
+<svg class="w-3.5 h-3.5 stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+</div>
+</nav>
+</header>
+<!-- END: MainHeader -->
+<!-- BEGIN: HeroSection -->
+<main class="relative z-10 flex-1 flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 pt-10 pb-16">
+<div class="w-full max-w-6xl mx-auto flex flex-col items-center text-center">
+<!-- Badge Pill -->
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-lime/40 bg-brand-lime/10 text-brand-lime text-xs font-medium tracking-wide mb-6 shadow-[0_0_20px_rgba(168,230,0,0.15)] animate-pulse" data-purpose="hero-badge">
+<svg class="w-3.5 h-3.5 fill-brand-lime" viewbox="0 0 24 24">
+<path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+</svg>
+<span>La plateforme qui connecte le talent sénégalais aux recruteurs</span>
+</div>
+<!-- Headline -->
+<h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-[76px] font-extrabold uppercase tracking-tight text-white leading-[1.03] max-w-4xl">
+        FAIS VOIR TON TALENT <br/>
+<span class="text-brand-lime drop-shadow-[0_0_35px_rgba(168,230,0,0.35)]">SUR LE TERRAIN</span> QUI COMPTE
+      </h1>
+<!-- Subtitle -->
+<p class="mt-6 text-brand-dim text-sm sm:text-base md:text-lg max-w-2xl leading-relaxed font-body font-normal">
+        Teranga Draft relie joueurs, académies et recruteurs en un seul endroit — profils vérifiés, filtres précis et contact direct avec les scouts internationaux.
+      </p>
+<!-- Action Buttons -->
+<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+<!-- Primary Button -->
+<a class="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-brand-lime text-brand-dark font-bold text-sm tracking-wide transition-all duration-300 hover:bg-brand-lime-hover hover:scale-105 shadow-[0_0_25px_rgba(168,230,0,0.4)]" href="#creer-profil">
+<span>Créer mon profil</span>
+<svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+<!-- Secondary Button -->
+<a class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-white text-brand-dark font-bold text-sm tracking-wide transition-all duration-300 hover:bg-gray-200 hover:scale-105" href="#assistant-ia">
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24">
+<path d="M8 5v14l11-7z"></path>
+</svg>
+<span>Voir la démo</span>
+</a>
+</div>
+<!-- BEGIN: HeroStageMockup -->
+<!-- Interactive Showcase Area matching the reference visual style -->
+<div class="relative w-full max-w-5xl mt-14 sm:mt-18 pt-6 pb-4 flex justify-center items-center" data-purpose="hero-mockup-stage">
+<!-- Top Right Social Proof Floating Pill -->
+<div class="absolute -top-3 sm:top-2 right-2 sm:right-10 z-20 flex items-center gap-3 glass-panel px-4 py-2.5 rounded-2xl shadow-xl border border-white/10">
+<div class="flex -space-x-2.5 overflow-hidden">
+<img alt="Scout profil" class="inline-block h-8 w-8 rounded-full ring-2 ring-[#0d1410] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4OSJXrTB-RXd9eD8k1nAKhs_8k5JTUtHiv99aPk_BBnhaoSbawaGARoGcwyP7-b4Ml5lSN6JS5vZaErFhgM08STmO0H8m40lQjZMmBRzk7GrXY7LcPx9_jZLf3lSxeL586YT8M1GcmztKade_ESU7qS6UwyGbyQ3M9bJ7YC6tKYoVm7t1WCI__eGIT2jt9Co6c2R6MOh6SDpWOva1DmPLTiWYN9iyxtGRRDlpw89hyYoPtPLtWOCS"/>
+<img alt="Recruteur profil" class="inline-block h-8 w-8 rounded-full ring-2 ring-[#0d1410] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAm3cGbJG4EtavgAkkmaagAHeg6onv4IE8Ip3HZdKIP1zcaS2bRoPtu2hjhfpPqS1cX_Q4uFoK6CLWvR0Msq795yWJv3TDUmg30whFEOctaiDNd1bPdTnwRiqW0bqy3PV5hA8C23U6f2qLZ7ObxLaV56YR1MqNoMSJWVh766XSjvMVa1dhmSTDQuitBJ06v9FimtGRlAU6lBaOxadZDtyNDmjcs7QUI4SMTvx05sUt9_vJmNH-OJ_oi"/>
+<img alt="Coach profil" class="inline-block h-8 w-8 rounded-full ring-2 ring-[#0d1410] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGwrURe6flRR1XZanENHc_aTNeHgH-xtFrMGAik7AtBPVy2Id1QAeio_r1npI2vEBJ_IBUJDgrsgSaiSmSklDdk9BgtGCOWyZ8CYQMvTdHVktLkX1clQU7B1EWPF_w4jliWrXx46I-zf0qGgymnKKsI250RMhRvL37v2hWpBhMW7-CBK1BfiMTTSwIyD5anHnn4gGyjB_EaFpdNCfVp9OxGp19GvabQE09sBe1Uf6NoODqeTI3Wxv3"/>
+</div>
+<div class="text-left font-body">
+<div class="flex items-center gap-1.5">
+<span class="text-xs font-bold text-white uppercase tracking-wider">1 200+</span>
+<span class="inline-block w-1.5 h-1.5 rounded-full bg-brand-lime"></span>
+</div>
+<p class="text-[11px] text-brand-dim leading-none">Joueurs &amp; Talents inscrits</p>
+</div>
+</div>
+<!-- Left Glassmorphic Card (Stats & Profils Vérifiés) -->
+<div class="hidden lg:flex absolute left-0 top-16 z-20 flex-col items-start p-4 glass-panel rounded-2xl w-60 text-left transform -rotate-3 transition hover:rotate-0 hover:scale-105 duration-300">
+<div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-lime mb-3">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<h4 class="text-sm font-bold text-white">Profils Vérifiés</h4>
+<p class="text-xs text-brand-dim mt-1 leading-relaxed font-body">
+            Stats officielles, vidéos découpées et validation par les académies agréées FSF.
+          </p>
+<div class="mt-3 flex items-center gap-1.5 text-[10px] text-brand-lime font-mono">
+<span class="w-2 h-2 rounded-full bg-brand-lime inline-block"></span>
+            100% FIABLE &amp; CERTIFIÉ
+          </div>
+</div>
+<!-- Right Glassmorphic Card (Filtres Recruteurs) -->
+<div class="hidden lg:flex absolute right-4 bottom-12 z-20 flex-col items-start p-4 glass-panel rounded-2xl w-60 text-left transform rotate-2 transition hover:rotate-0 hover:scale-105 duration-300">
+<div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-lime mb-3">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<h4 class="text-sm font-bold text-white">Filtres Recruteurs</h4>
+<p class="text-xs text-brand-dim mt-1 leading-relaxed font-body">
+            Ciblage par poste, tranche d'âge, pied fort, VMA, région et potentiel pro européen.
+          </p>
+<div class="mt-3 inline-block px-2 py-0.5 rounded bg-brand-lime/10 text-brand-lime text-[10px] font-semibold">
+            Radar &amp; Analytics IA
+          </div>
+</div>
+<!-- Central Mockup: Smartphone held in Landscape / Video Focus (as in Reference) -->
+<div class="relative w-full max-w-[620px] mx-auto z-10 transition duration-500 hover:scale-[1.01]">
+<!-- Silhouette / Hand Overlay Effect Simulator -->
+<div class="phone-horizontal-frame bg-[#0a100d] overflow-hidden relative">
+<!-- Video Container Header (In-App Player) -->
+<div class="relative w-full h-[290px] sm:h-[350px] bg-slate-950 overflow-hidden flex flex-col justify-between p-3 sm:p-5">
+<!-- Video Background Image -->
+<img alt="Action de football Sénégal match en direct" class="absolute inset-0 w-full h-full object-cover opacity-85 brightness-90 saturate-125" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6mod_1ZBLZT1pWAp6MYuZtig1p5ax_RSeuUle2pXFOZONilWtWItKV69hKQaCiNDa_aaa7p0o8u0YHDO9GHqX54JfGvkBmneY0MaJEWNfe7DfAoPpv22VugaIGTo3TeFVSuVrfTfBDhtWdT2SjOoDL-AfVYOj0MPFD7niEtX2ElcsILdNAu8gagyFfszEBZfVBvr_EqrF1LB6t_RHoeqJpGyi_q2mcmmgWDi19lpehG8NG0fj7Sy-"/>
+<!-- Video Overlay Gradient -->
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/70 pointer-events-none"></div>
+<!-- Top Bar Over Video -->
+<div class="relative z-10 flex items-center justify-between text-white">
+<div class="flex items-center gap-2">
+<div class="w-7 h-7 rounded-full bg-black/50 backdrop-blur-md flex items-center justify-center cursor-pointer hover:bg-black">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-bold text-xs sm:text-sm tracking-wide text-white drop-shadow">Mamadou Sarr</h3>
+<span class="bg-brand-lime text-brand-dark px-1.5 py-0.5 rounded text-[10px] font-extrabold uppercase">N° 9</span>
+</div>
+<p class="text-[10px] text-gray-300">Attaquant · 19 ans · Dakar (Génération Foot)</p>
+</div>
+</div>
+<!-- Action / Casting Icons -->
+<div class="flex items-center gap-2">
+<span class="px-2 py-0.5 rounded-full bg-red-600/90 text-white text-[10px] font-bold tracking-wider animate-pulse flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-white"></span> LIVE SCOUT
+                  </span>
+<div class="w-7 h-7 rounded-full bg-black/50 backdrop-blur-md flex items-center justify-center text-gray-300 cursor-pointer">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+</div>
+<!-- Center Big Play Button with Pulse -->
+<div class="relative z-10 self-center my-auto flex items-center justify-center">
+<button aria-label="Lire la vidéo du match" class="group relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-white/20 backdrop-blur-md border border-white/40 text-white shadow-2xl transition-all duration-300 hover:scale-110 hover:bg-brand-lime hover:text-black" type="button">
+<svg class="w-6 h-6 fill-current translate-x-0.5" viewbox="0 0 24 24">
+<path d="M8 5v14l11-7z"></path>
+</svg>
+<span class="absolute -inset-1 rounded-full border border-brand-lime/50 animate-ping pointer-events-none opacity-40"></span>
+</button>
+</div>
+<!-- Bottom Video Controls & Player Details -->
+<div class="relative z-10 space-y-2">
+<!-- Timeline Slider -->
+<div class="flex items-center gap-3 text-[10px] text-gray-300 font-mono">
+<span>02:45</span>
+<div class="relative flex-1 h-1.5 bg-white/20 rounded-full overflow-hidden cursor-pointer">
+<div class="absolute left-0 top-0 h-full w-[65%] bg-brand-lime rounded-full shadow-[0_0_10px_#a8e600]"></div>
+</div>
+<span>04:12</span>
+</div>
+<!-- Bottom Metrics & Player Attributes -->
+<div class="flex items-center justify-between pt-1">
+<!-- Chips Data -->
+<div class="flex flex-wrap items-center gap-1.5">
+<span class="px-2 py-0.5 rounded-full bg-black/60 border border-white/10 text-white text-[11px] font-semibold">
+                      🎯 14 Buts
+                    </span>
+<span class="px-2 py-0.5 rounded-full bg-black/60 border border-white/10 text-white text-[11px] font-semibold">
+                      🅰️ 8 Passes déc.
+                    </span>
+<span class="px-2 py-0.5 rounded-full bg-black/60 border border-brand-lime/40 text-brand-lime text-[11px] font-semibold">
+                      ⚡ 34.2 km/h
+                    </span>
+<span class="hidden sm:inline-block px-2 py-0.5 rounded-full bg-brand-lime/20 text-brand-lime border border-brand-lime/40 text-[10px] font-bold">
+                      🏆 Certifié FSF
+                    </span>
+</div>
+<!-- Fullscreen / Mode Icons -->
+<div class="flex items-center gap-2 text-white/80">
+<span class="text-[10px] font-medium tracking-wide uppercase text-brand-lime">HD 1080p</span>
+<svg class="w-4 h-4 cursor-pointer hover:text-brand-lime transition" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- END: HeroStageMockup -->
+</div>
+</main>
+<!-- END: HeroSection -->
+<!-- BEGIN: BottomMetricsBar -->
+<section class="relative z-20 border-y border-white/5 bg-[#0a0f0c]/90 backdrop-blur-xl py-6 px-4 sm:px-8">
+<div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+<!-- Key Figures -->
+<div class="grid grid-cols-3 gap-6 sm:gap-12 w-full md:w-auto">
+<div class="space-y-0.5">
+<div class="text-xl sm:text-2xl font-extrabold text-white tracking-tight">45+</div>
+<div class="text-xs text-brand-dim font-medium">Recruteurs partenaires</div>
+</div>
+<div class="space-y-0.5 border-x border-white/5 px-4 sm:px-8">
+<div class="text-xl sm:text-2xl font-extrabold text-brand-lime tracking-tight">18</div>
+<div class="text-xs text-brand-dim font-medium">Académies sénégalaises</div>
+</div>
+<div class="space-y-0.5">
+<div class="text-xl sm:text-2xl font-extrabold text-white tracking-tight">92%</div>
+<div class="text-xs text-brand-dim font-medium">Profils certifiés FSF</div>
+</div>
+</div>
+<!-- Teranga Assurance Note -->
+<div class="flex items-center gap-3 text-xs text-brand-dim">
+<div class="w-2 h-2 rounded-full bg-brand-lime animate-ping"></div>
+<span>Dakar · Thiès · Saint-Louis · Ziguinchor · Saloum</span>
+</div>
+</div>
+</section>
+<!-- END: BottomMetricsBar -->
+<!-- BEGIN: Section 2 - Features -->
+<section class="relative z-10 py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto" id="joueurs">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-lime/30 bg-brand-lime/10 text-brand-lime text-xs font-semibold uppercase tracking-wider mb-4">
+      Fonctionnalités Clés
+    </div>
+<h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight uppercase font-sans">
+      Tout ce qu'il faut pour être repéré
+    </h2>
+<p class="mt-4 text-brand-dim text-sm sm:text-base font-body leading-relaxed">
+      Une suite d’outils professionnels conçue pour mettre en avant chaque séquence et chaque donnée décisive de votre jeu.
+    </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Feature Card 1 -->
+<div class="bg-[#141d17] border border-white/10 rounded-2xl p-6 flex flex-col justify-between hover:border-white/20 transition duration-300 group">
+<div>
+<div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-lime mb-5 group-hover:scale-105 group-hover:border-brand-lime/40 transition">
+<svg class="w-6 h-6 stroke-[1.75]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<polygon points="23 7 16 12 23 17 23 7" stroke-linecap="round" stroke-linejoin="round"></polygon>
+<rect height="14" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round" width="14" x="1" y="5"></rect>
+</svg>
+</div>
+<h3 class="text-lg font-bold text-white tracking-tight mb-2">Profil vidéo</h3>
+<p class="text-brand-dim text-xs leading-relaxed font-body">
+          Téléversez vos highlights en haute définition, segmentés par actions clés (dribbles, tacles, tirs cadrés, relances) visibles instantanément.
+        </p>
+</div>
+<div class="mt-6 pt-4 border-t border-white/5 flex items-center text-[11px] font-semibold text-brand-lime">
+        Lecture HD &amp; Séquençage rapide
+      </div>
+</div>
+<!-- Feature Card 2 (Highlighted) -->
+<div class="bg-[#141d17] border border-brand-lime/40 rounded-2xl p-6 flex flex-col justify-between shadow-[0_0_30px_rgba(168,230,0,0.12)] relative group">
+<div class="absolute -top-3 right-5">
+<span class="px-2.5 py-0.5 rounded-full bg-brand-lime text-brand-dark font-extrabold text-[10px] uppercase tracking-wider shadow-sm">
+          Essentiel
+        </span>
+</div>
+<div>
+<div class="w-12 h-12 rounded-xl bg-brand-lime/10 border border-brand-lime/30 flex items-center justify-center text-brand-lime mb-5 group-hover:scale-105 transition">
+<svg class="w-6 h-6 stroke-[1.75]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<line stroke-linecap="round" stroke-linejoin="round" x1="18" x2="18" y1="20" y2="10"></line>
+<line stroke-linecap="round" stroke-linejoin="round" x1="12" x2="12" y1="20" y2="4"></line>
+<line stroke-linecap="round" stroke-linejoin="round" x1="6" x2="6" y1="20" y2="14"></line>
+</svg>
+</div>
+<h3 class="text-lg font-bold text-white tracking-tight mb-2">Statistiques suivies</h3>
+<p class="text-brand-dim text-xs leading-relaxed font-body">
+          Suivez précisément vos indicateurs athlétiques et footballistiques : buts, passes décisives, temps de jeu, VMA et vitesse de pointe mesurée.
+        </p>
+</div>
+<div class="mt-6 pt-4 border-t border-brand-lime/20 flex items-center text-[11px] font-semibold text-brand-lime">
+        Radar athlétique certifié
+      </div>
+</div>
+<!-- Feature Card 3 -->
+<div class="bg-[#141d17] border border-white/10 rounded-2xl p-6 flex flex-col justify-between hover:border-white/20 transition duration-300 group">
+<div>
+<div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-lime mb-5 group-hover:scale-105 group-hover:border-brand-lime/40 transition">
+<svg class="w-6 h-6 stroke-[1.75]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="10" stroke-linecap="round" stroke-linejoin="round"></circle>
+<circle cx="12" cy="12" r="3" stroke-linecap="round" stroke-linejoin="round"></circle>
+<line stroke-linecap="round" stroke-linejoin="round" x1="12" x2="12.01" y1="2" y2="2"></line>
+<line stroke-linecap="round" stroke-linejoin="round" x1="12" x2="12.01" y1="22" y2="22"></line>
+</svg>
+</div>
+<h3 class="text-lg font-bold text-white tracking-tight mb-2">Visibilité recruteurs</h3>
+<p class="text-brand-dim text-xs leading-relaxed font-body">
+          Votre fiche est consultable en temps réel par un réseau de scouts internationaux et de clubs partenaires actifs sur toute la région.
+        </p>
+</div>
+<div class="mt-6 pt-4 border-t border-white/5 flex items-center text-[11px] font-semibold text-brand-lime">
+        Réseau d'observateurs actifs
+      </div>
+</div>
+<!-- Feature Card 4 -->
+<div class="bg-[#141d17] border border-white/10 rounded-2xl p-6 flex flex-col justify-between hover:border-white/20 transition duration-300 group">
+<div>
+<div class="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-lime mb-5 group-hover:scale-105 group-hover:border-brand-lime/40 transition">
+<svg class="w-6 h-6 stroke-[1.75]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"></path>
+<polyline points="9 12 11 14 15 10" stroke-linecap="round" stroke-linejoin="round"></polyline>
+</svg>
+</div>
+<h3 class="text-lg font-bold text-white tracking-tight mb-2">Certification académie</h3>
+<p class="text-brand-dim text-xs leading-relaxed font-body">
+          Les profils sont validés et labellisés par des académies reconnues et affiliées FSF, assurant une crédibilité maximale auprès des clubs pros.
+        </p>
+</div>
+<div class="mt-6 pt-4 border-t border-white/5 flex items-center text-[11px] font-semibold text-brand-lime">
+        Label officiel FSF partenaire
+      </div>
+</div>
+</div>
+</section>
+<!-- END: Section 2 - Features -->
+<!-- BEGIN: Section 3 - Process -->
+<section class="relative z-10 py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/5" id="comment-ca-marche">
+<div class="text-center max-w-2xl mx-auto mb-20">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-lime/30 bg-brand-lime/10 text-brand-lime text-xs font-semibold uppercase tracking-wider mb-4">
+      Parcours Simple &amp; Éprouvé
+    </div>
+<h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight uppercase font-sans">
+      Comment ça marche
+    </h2>
+<p class="mt-4 text-brand-dim text-sm sm:text-base font-body leading-relaxed">
+      De votre inscription jusqu'à la première prise de contact officielle avec un club : 3 étapes directes sans intermédiaire inutile.
+    </p>
+</div>
+<!-- Sequential 3 Steps with glowing connectors -->
+<div class="relative">
+<!-- Horizontal line across desktop -->
+<div class="hidden lg:block absolute top-10 left-[16%] right-[16%] h-[2px] bg-gradient-to-r from-white/10 via-brand-lime/40 to-white/10 -z-0"></div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 relative z-10">
+<!-- Step 01 -->
+<div class="bg-[#131c16] border border-white/10 rounded-2xl p-8 relative flex flex-col justify-between hover:border-white/20 transition">
+<div class="flex items-center justify-between mb-8">
+<span class="font-mono text-3xl font-extrabold text-white/90">01</span>
+<span class="relative flex h-3.5 w-3.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-lime opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-brand-lime shadow-[0_0_12px_#a8e600]"></span>
+</span>
+</div>
+<div>
+<h3 class="text-xl font-bold text-white tracking-tight mb-3">Crée ton profil</h3>
+<p class="text-brand-dim text-sm font-body leading-relaxed">
+          Renseigne tes mensurations athlétiques, ton poste de prédilection, ton club actuel, ta région d’origine et ton historique de compétition.
+        </p>
+</div>
+<div class="mt-8 pt-4 border-t border-white/5 flex items-center gap-2 text-xs text-white/60 font-mono">
+<svg class="w-4 h-4 text-brand-lime" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        Gratuit &amp; ouvert à tous
+      </div>
+</div>
+<!-- Step 02 -->
+<div class="bg-[#16221a] border border-brand-lime/30 rounded-2xl p-8 relative flex flex-col justify-between shadow-[0_0_35px_rgba(168,230,0,0.08)] hover:border-brand-lime/50 transition">
+<div class="flex items-center justify-between mb-8">
+<span class="font-mono text-3xl font-extrabold text-brand-lime">02</span>
+<span class="relative flex h-3.5 w-3.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-lime opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-brand-lime shadow-[0_0_12px_#a8e600]"></span>
+</span>
+</div>
+<div>
+<h3 class="text-xl font-bold text-white tracking-tight mb-3">Ajoute tes vidéos et stats</h3>
+<p class="text-brand-dim text-sm font-body leading-relaxed">
+          Téléverse tes matchs complets ou tes actions décisives découpées. Fais certifier tes données physiques par ton coach ou ton académie affiliée.
+        </p>
+</div>
+<div class="mt-8 pt-4 border-t border-brand-lime/20 flex items-center gap-2 text-xs text-brand-lime font-mono">
+<svg class="w-4 h-4 text-brand-lime" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        Format HD optimisé scout
+      </div>
+</div>
+<!-- Step 03 -->
+<div class="bg-[#131c16] border border-white/10 rounded-2xl p-8 relative flex flex-col justify-between hover:border-white/20 transition">
+<div class="flex items-center justify-between mb-8">
+<span class="font-mono text-3xl font-extrabold text-white/90">03</span>
+<span class="relative flex h-3.5 w-3.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-lime opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3.5 w-3.5 bg-brand-lime shadow-[0_0_12px_#a8e600]"></span>
+</span>
+</div>
+<div>
+<h3 class="text-xl font-bold text-white tracking-tight mb-3">Sois contacté directement</h3>
+<p class="text-brand-dim text-sm font-body leading-relaxed">
+          Reçois des alertes, invitations à des journées de détection officielles et propositions d'essais directement sur ton tableau de bord et sur WhatsApp.
+        </p>
+</div>
+<div class="mt-8 pt-4 border-t border-white/5 flex items-center gap-2 text-xs text-white/60 font-mono">
+<svg class="w-4 h-4 text-brand-lime" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+        Contact direct &amp; sécurisé
+      </div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Section 3 - Process -->
+<!-- BEGIN: Section 4 - AI Assistant -->
+<section class="relative z-10 py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/5" id="assistant-ia">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Left Column: Copy & Presentation -->
+<div class="lg:col-span-5 space-y-6 text-left">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-lime/30 bg-brand-lime/10 text-brand-lime text-xs font-semibold uppercase tracking-wider">
+<svg class="w-3.5 h-3.5 stroke-[2]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+<span>Scouting Intelligent</span>
+</div>
+<h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight uppercase leading-[1.1]">
+      Un assistant qui connaît le foot sénégalais
+    </h2>
+<p class="text-brand-dim text-sm sm:text-base font-body leading-relaxed">
+      L'assistant répond instantanément aux questions des recruteurs, synthétise les feuilles de match et filtre parmi des centaines de talents 10 fois plus vite, sans passer des nuits entières sur des vidéos brutes.
+    </p>
+<div class="space-y-3 pt-2 font-body text-xs sm:text-sm text-brand-dim">
+<div class="flex items-center gap-3">
+<div class="w-6 h-6 rounded-lg bg-brand-lime/10 border border-brand-lime/30 flex items-center justify-center text-brand-lime">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+</div>
+<span>Recherche en langage naturel par profil athlétique et poste</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-6 h-6 rounded-lg bg-brand-lime/10 border border-brand-lime/30 flex items-center justify-center text-brand-lime">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+</div>
+<span>Synthèse des forces et axes d'amélioration en 1 clic</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-6 h-6 rounded-lg bg-brand-lime/10 border border-brand-lime/30 flex items-center justify-center text-brand-lime">
+<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+</div>
+<span>Couverture complète des championnats régionaux et nationaux</span>
+</div>
+</div>
+<div class="pt-4">
+<a class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-brand-dark font-bold text-xs uppercase tracking-wide hover:bg-brand-lime transition duration-300" href="#tarifs">
+<span>Tester avec vos critères</span>
+<svg class="w-3.5 h-3.5 stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+</a>
+</div>
+</div>
+<!-- Right Column: Realistic Dark Chat Mockup -->
+<div class="lg:col-span-7">
+<div class="bg-[#111914] border border-white/10 rounded-2xl p-5 sm:p-6 shadow-2xl relative overflow-hidden backdrop-blur-xl">
+<!-- Chat Top Header -->
+<div class="flex items-center justify-between pb-4 border-b border-white/10">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-xl bg-brand-lime/15 border border-brand-lime/40 flex items-center justify-center text-brand-lime font-bold text-xs">
+<svg class="w-4 h-4 stroke-[2]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<div>
+<h4 class="text-sm font-bold text-white tracking-wide">Teranga Scout AI</h4>
+<p class="text-[10px] text-brand-lime flex items-center gap-1 font-medium">
+<span class="w-1.5 h-1.5 rounded-full bg-brand-lime inline-block"></span> En ligne • Index Sénégal 2025/2026
+            </p>
+</div>
+</div>
+<span class="text-[11px] text-white/40 font-mono uppercase bg-white/5 px-2.5 py-1 rounded-full border border-white/5">Mode Recruteur</span>
+</div>
+<!-- Chat Messages Area -->
+<div class="py-6 space-y-4 font-body">
+<!-- User Message Bubble (Right) -->
+<div class="flex justify-end">
+<div class="max-w-md bg-[#1f2922] border border-white/10 text-white text-xs sm:text-sm px-4 py-3 rounded-2xl rounded-tr-sm shadow-sm">
+            Trouve-moi un latéral droit de moins de 20 ans à Thiès
+          </div>
+</div>
+<!-- Assistant Response Bubble (Left) -->
+<div class="flex justify-start">
+<div class="max-w-lg bg-[#a8e600]/[0.08] border border-brand-lime/30 text-white text-xs sm:text-sm p-4 rounded-2xl rounded-tl-sm shadow-sm space-y-3">
+<div class="flex items-center gap-2 text-brand-lime text-xs font-semibold font-sans">
+<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>2 profils à fort potentiel correspondent à vos filtres :</span>
+</div>
+<!-- Profile 1 Micro-card -->
+<div class="bg-black/40 border border-white/10 rounded-xl p-3 space-y-1.5">
+<div class="flex items-center justify-between">
+<span class="font-bold text-white text-xs">Cheikh Tidiane Diallo (18 ans)</span>
+<span class="bg-brand-lime/20 text-brand-lime border border-brand-lime/40 text-[10px] font-bold px-1.5 py-0.5 rounded">VMA 19.4 km/h</span>
+</div>
+<p class="text-[11px] text-brand-dim">CNEPS Excellence (Thiès) · Pied droit · 4 passes décisives en 11 matchs · Latéral moderne très offensif.</p>
+</div>
+<!-- Profile 2 Micro-card -->
+<div class="bg-black/40 border border-white/10 rounded-xl p-3 space-y-1.5">
+<div class="flex items-center justify-between">
+<span class="font-bold text-white text-xs">Ousmane Ba (19 ans)</span>
+<span class="bg-white/10 text-white border border-white/10 text-[10px] font-bold px-1.5 py-0.5 rounded">Vitesse 33.8 km/h</span>
+</div>
+<p class="text-[11px] text-brand-dim">Académie Amitié FC · 82% tacles réussis · Profil rigoureux, gabarit 1m82.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Chat Input Bar -->
+<div class="pt-2">
+<div class="relative flex items-center">
+<input class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-xs sm:text-sm text-white placeholder-white/30 focus:outline-none focus:border-brand-lime/60 pr-12 transition" placeholder="Trouve-moi un latéral droit de moins de 20 ans à Thiès" readonly="" type="text"/>
+<button aria-label="Envoyer" class="absolute right-2 w-8 h-8 rounded-lg bg-brand-lime text-brand-dark flex items-center justify-center font-bold hover:brightness-105 transition" type="button">
+<svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<line stroke-linecap="round" stroke-linejoin="round" x1="22" x2="11" y1="2" y2="13"></line>
+<polygon points="22 2 15 22 11 13 2 9 22 2" stroke-linecap="round" stroke-linejoin="round"></polygon>
+</svg>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Section 4 - AI Assistant -->
+<!-- BEGIN: Section 5 - Pricing -->
+<section class="relative z-10 py-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto border-t border-white/5" id="tarifs">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-lime/30 bg-brand-lime/10 text-brand-lime text-xs font-semibold uppercase tracking-wider mb-4">
+      Tarification Transparente
+    </div>
+<h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight uppercase font-sans">
+      Des offres adaptées à chaque ambition
+    </h2>
+<p class="mt-4 text-brand-dim text-sm sm:text-base font-body leading-relaxed">
+      Rejoignez la passerelle du football sénégalais. Choisissez la formule calibrée pour votre étape de progression.
+    </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
+<!-- Plan 1: Joueur (Gratuit) -->
+<div class="bg-[#152019] border border-white/10 rounded-2xl p-8 flex flex-col justify-between hover:border-white/20 transition">
+<div>
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-xl font-bold text-white">Joueur</h3>
+<span class="text-xs text-white/50 uppercase font-mono tracking-wider">Découverte</span>
+</div>
+<div class="my-6">
+<div class="text-4xl font-extrabold text-white font-sans">Gratuit</div>
+<p class="text-xs text-brand-dim mt-1">Pour créer votre présence en ligne</p>
+</div>
+<ul class="space-y-3 font-body text-xs sm:text-sm text-brand-dim border-t border-white/5 pt-6">
+<li class="flex items-start gap-2.5">
+<svg class="w-4 h-4 text-white/50 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Profil joueur vérifiable en ligne</span>
+</li>
+<li class="flex items-start gap-2.5">
+<svg class="w-4 h-4 text-white/50 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Upload de 1 vidéo highlight (max 3 min)</span>
+</li>
+<li class="flex items-start gap-2.5">
+<svg class="w-4 h-4 text-white/50 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Statistiques de base déclarées</span>
+</li>
+<li class="flex items-start gap-2.5 text-white/30">
+<span class="w-4 text-center mt-0.5">—</span>
+<span>Badge certifié par académie agréée</span>
+</li>
+</ul>
+</div>
+<div class="mt-8 pt-6 border-t border-white/5">
+<a class="w-full inline-flex items-center justify-center py-3 rounded-xl bg-white/10 text-white font-semibold text-xs tracking-wider uppercase hover:bg-white hover:text-brand-dark transition duration-300" href="#register">
+        Créer mon profil
+      </a>
+</div>
+</div>
+<!-- Plan 2: Joueur Pro (Highlighted) -->
+<div class="bg-[#152019] border-2 border-brand-lime rounded-2xl p-8 flex flex-col justify-between shadow-[0_0_40px_rgba(168,230,0,0.18)] relative">
+<div class="absolute -top-3.5 left-1/2 -translate-x-1/2">
+<span class="px-3.5 py-1 rounded-full bg-brand-lime text-brand-dark font-extrabold text-[11px] uppercase tracking-wider shadow-md">
+        Le plus choisi
+      </span>
+</div>
+<div>
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-xl font-bold text-white">Joueur Pro</h3>
+<span class="text-xs text-brand-lime uppercase font-mono tracking-wider font-semibold">Visibilité Max</span>
+</div>
+<div class="my-6">
+<div class="flex items-baseline gap-1">
+<span class="text-4xl font-extrabold text-white font-sans">4 900</span>
+<span class="text-base font-bold text-brand-lime font-sans">FCFA</span>
+<span class="text-xs text-brand-dim">/ mois</span>
+</div>
+<p class="text-xs text-brand-dim mt-1">soit 7,50 € / mois · Sans engagement</p>
+</div>
+<ul class="space-y-3 font-body text-xs sm:text-sm text-white/90 border-t border-brand-lime/20 pt-6">
+<li class="flex items-start gap-2.5">
+<svg class="w-4 h-4 text-brand-lime mt-0.5 shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+<span>Vidéos et highlights illimités en Full HD</span>
+</li>
+<li class="flex items-start gap-2.5">
+<svg class="w-4 h-4 text-brand-lime mt-0.5 shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+<span>Mise en avant prioritaire auprès des recruteurs</span>
+</li>
+<li class="flex items-start gap-2.5">
+<svg class="w-4 h-4 text-brand-lime mt-0.5 shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+<span>Badge vérifié officiel &amp; validation FSF</span>
+</li>
+<li class="flex items-start gap-2.5">
+<svg class="w-4 h-4 text-brand-lime mt-0.5 shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
+<span>Radar de statistiques complètes &amp; tests VMA</span>
+</li>
+</ul>
+</div>
+<div class="mt-8 pt-6 border-t border-brand-lime/20">
+<a class="w-full inline-flex items-center justify-center py-3.5 rounded-xl bg-brand-lime text-brand-dark font-bold text-xs tracking-wider uppercase hover:bg-brand-lime-hover shadow-[0_0_20px_rgba(168,230,0,0.35)] transition duration-300" href="#register-pro">
+        Passer en Pro
+      </a>
+</div>
+</div>
+<!-- Plan 3: Recruteur -->
+<div class="bg-[#152019] border border-white/10 rounded-2xl p-8 flex flex-col justify-between hover:border-white/20 transition">
+<div>
+<div class="flex items-center justify-between mb-4">
+<h3 class="text-xl font-bold text-white">Recruteur</h3>
+<span class="text-xs text-white/50 uppercase font-mono tracking-wider">Clubs &amp; Scouts</span>
+</div>
+<div class="my-6">
+<div class="flex items-baseline gap-1">
+<span class="text-4xl font-extrabold text-white font-sans">35 000</span>
+<span class="text-base font-bold text-white font-sans">FCFA</span>
+<span class="text-xs text-brand-dim">/ mois</span>
+</div>
+<p class="text-xs text-brand-dim mt-1">soit 50 € / mois · Facturation flexible</p>
+</div>
+<ul class="space-y-3 font-body text-xs sm:text-sm text-brand-dim border-t border-white/5 pt-6">
+<li class="flex items-start gap-2.5">
+<svg class="w-4 h-4 text-white/50 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Accès illimité au catalogue national complet</span>
+</li>
+<li class="flex items-start gap-2.5">
+<svg class="w-4 h-4 text-white/50 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Filtres avancés (VMA, poste, région, taille)</span>
+</li>
+<li class="flex items-start gap-2.5">
+<svg class="w-4 h-4 text-white/50 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Contact direct WhatsApp &amp; mail des académies</span>
+</li>
+<li class="flex items-start gap-2.5">
+<svg class="w-4 h-4 text-white/50 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<span>Rapports et analyses Teranga Scout AI</span>
+</li>
+</ul>
+</div>
+<div class="mt-8 pt-6 border-t border-white/5">
+<a class="w-full inline-flex items-center justify-center py-3 rounded-xl bg-white text-brand-dark font-semibold text-xs tracking-wider uppercase hover:bg-brand-lime transition duration-300" href="#recruteur-access">
+        Voir les joueurs
+      </a>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Section 5 - Pricing -->
+<!-- BEGIN: Section 6 - Final CTA Banner -->
+<section class="relative z-10 py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+<div class="relative rounded-3xl overflow-hidden border border-white/10 bg-[#0e1611] p-10 sm:p-16 text-center">
+<!-- Radial Glow Background -->
+<div class="absolute inset-0 section-glow-radial pointer-events-none"></div>
+<div class="relative z-10 max-w-3xl mx-auto space-y-6">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-lime/30 bg-brand-lime/10 text-brand-lime text-xs font-semibold uppercase tracking-wider">
+      Rejoins le mouvement
+    </div>
+<h2 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold uppercase text-white tracking-tight leading-tight">
+      Ton prochain match <br/>
+<span class="text-brand-lime drop-shadow-[0_0_30px_rgba(168,230,0,0.35)]">commence ici</span>
+</h2>
+<p class="text-brand-dim text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-body">
+      Le Sénégal regorge de talents d’exception. Ne laisse plus la distance ou le manque de contacts décider de ton avenir sportif.
+    </p>
+<div class="pt-4 flex flex-wrap justify-center items-center gap-4">
+<a class="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-lime text-brand-dark font-bold text-sm tracking-wide uppercase transition-all duration-300 hover:bg-brand-lime-hover hover:scale-105 shadow-[0_0_25px_rgba(168,230,0,0.4)]" href="#register">
+<span>Créer mon profil joueur</span>
+<svg class="w-4 h-4 stroke-[2.5]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Section 6 - Final CTA Banner -->
+<!-- BEGIN: Minimalist Footer -->
+<footer class="relative z-20 border-t border-white/5 bg-[#080d0a] pt-16 pb-12 px-4 sm:px-8">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/5">
+<!-- Brand Mission Column -->
+<div class="lg:col-span-2 space-y-4">
+<a class="flex items-center gap-3 group focus:outline-none" href="#">
+<div class="w-8 h-8 rounded-xl bg-brand-lime flex items-center justify-center font-extrabold text-brand-dark tracking-tight text-sm shadow-[0_0_12px_rgba(168,230,0,0.4)]">
+            TD
+          </div>
+<span class="font-bold tracking-wider text-base uppercase text-white font-sans">
+            TERANGA <span class="text-brand-lime font-extrabold">DRAFT</span>
+</span>
+</a>
+<p class="text-xs sm:text-sm text-brand-dim font-body max-w-sm leading-relaxed">
+          La passerelle numérique reliant l'ensemble des talents du football sénégalais aux académies reconnues et aux recruteurs du monde entier.
+        </p>
+<!-- Social Icons -->
+<div class="flex items-center gap-3 pt-2 text-brand-dim">
+<a aria-label="X Twitter" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:text-brand-lime hover:border-brand-lime/40 transition" href="#">
+<svg class="w-4 h-4 fill-currentColor" viewbox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+</a>
+<a aria-label="YouTube" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:text-brand-lime hover:border-brand-lime/40 transition" href="#">
+<svg class="w-4 h-4 fill-currentColor" viewbox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"></path></svg>
+</a>
+<a aria-label="Instagram" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:text-brand-lime hover:border-brand-lime/40 transition" href="#">
+<svg class="w-4 h-4 stroke-[2]" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<rect height="20" rx="5" ry="5" width="20" x="2" y="2"></rect>
+<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+<line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+</svg>
+</a>
+<a aria-label="LinkedIn" class="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:text-brand-lime hover:border-brand-lime/40 transition" href="#">
+<svg class="w-4 h-4 fill-currentColor" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+</a>
+</div>
+</div>
+<!-- Col 1: Produit -->
+<div>
+<h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4 font-mono">Produit</h4>
+<ul class="space-y-2.5 text-xs text-brand-dim font-body">
+<li><a class="hover:text-white transition" href="#joueurs">Joueurs</a></li>
+<li><a class="hover:text-white transition" href="#recruteur-access">Recruteurs</a></li>
+<li><a class="hover:text-white transition" href="#comment-ca-marche">Académies</a></li>
+<li><a class="hover:text-white transition" href="#tarifs">Tarifs</a></li>
+</ul>
+</div>
+<!-- Col 2: Ressources -->
+<div>
+<h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4 font-mono">Ressources</h4>
+<ul class="space-y-2.5 text-xs text-brand-dim font-body">
+<li><a class="hover:text-white transition" href="#">Guide de détection</a></li>
+<li><a class="hover:text-white transition" href="#">Calendrier tournois</a></li>
+<li><a class="hover:text-white transition" href="#">Témoignages</a></li>
+<li><a class="hover:text-white transition" href="#">FAQ</a></li>
+</ul>
+</div>
+<!-- Col 3: Légal -->
+<div>
+<h4 class="text-xs font-bold text-white uppercase tracking-wider mb-4 font-mono">Légal</h4>
+<ul class="space-y-2.5 text-xs text-brand-dim font-body">
+<li><a class="hover:text-white transition" href="#">Mentions légales</a></li>
+<li><a class="hover:text-white transition" href="#">Confidentialité</a></li>
+<li><a class="hover:text-white transition" href="#">Conditions d'utilisation</a></li>
+<li><a class="hover:text-white transition" href="#">FSF Partenariat</a></li>
+</ul>
+</div>
+</div>
+<!-- Bottom Footer Line -->
+<div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-brand-dim font-body">
+<p>© 2026 Teranga Draft. Tous droits réservés. Fait pour les talents du Sénégal.</p>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-brand-lime"></span>
+<span class="text-white/60">Dakar • Saint-Louis • Ziguinchor</span>
+</div>
+</div>
+</div>
+</footer>
+<!-- END: Minimalist Footer -->
+</body></html>

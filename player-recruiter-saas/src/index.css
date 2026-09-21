@@ -1,0 +1,92 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@theme {
+  --color-brand-dark: #0d1410;
+  --color-brand-card: #141d17;
+  --color-brand-lime: #a8e600;
+  --color-brand-lime-hover: #95cc00;
+  --color-brand-dim: #9aa89e;
+  --color-brand-border: rgba(255, 255, 255, 0.08);
+  --color-brand-glass: rgba(20, 29, 23, 0.65);
+
+  --color-primary: #a8e600;
+  --color-on-primary: #0d1410;
+  --color-primary-container: #a8e600;
+  --color-on-primary-container: #0d1410;
+  --color-primary-fixed: #a8e600;
+  --color-primary-fixed-dim: #7fb300;
+  --color-on-primary-fixed: #0d1410;
+
+  --color-secondary: #ffffff;
+  --color-on-secondary: #0d1410;
+  --color-secondary-container: rgba(168, 230, 0, 0.12);
+  --color-on-secondary-container: #a8e600;
+
+  --color-background: #080d0a;
+  --color-on-background: #f2f4ef;
+  --color-surface: #141d17;
+  --color-surface-dim: #080d0a;
+  --color-surface-bright: #233128;
+  --color-surface-container-lowest: #141d17;
+  --color-surface-container-low: #101713;
+  --color-surface-container: #1a241e;
+  --color-surface-container-high: #232f27;
+  --color-surface-container-highest: #2c3a31;
+  --color-on-surface: #f2f4ef;
+  --color-on-surface-variant: #9aa89e;
+  --color-outline: rgba(255, 255, 255, 0.16);
+  --color-outline-variant: rgba(255, 255, 255, 0.08);
+
+  --font-sans: 'Space Grotesk', Inter, system-ui, sans-serif;
+  --font-body: Inter, sans-serif;
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+}
+
+body {
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #080d0a;
+  color: #f2f4ef;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading, .font-display, [class*="font-display"] {
+  font-family: 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.hero-glow-radial {
+  background: radial-gradient(circle at 50% 30%, rgba(168, 230, 0, 0.18) 0%, rgba(13, 20, 16, 0.05) 55%, transparent 75%);
+}
+
+.section-glow-radial {
+  background: radial-gradient(circle at 50% 50%, rgba(168, 230, 0, 0.12) 0%, rgba(13, 20, 16, 0.02) 60%, transparent 80%);
+}
+
+.stadium-bg {
+  background-image: radial-gradient(circle at center, rgba(13, 20, 16, 0.72) 0%, #080d0a 100%), url(https://lh3.googleusercontent.com/aida-public/AB6AXuCitFKwzQ8EyW77SNpBofsfYv0d7I6Wuz5FbQRjJjKmq4KNCt-5NAXZw5w4yoKMrlYBwxNckH5EO2s8e9xMuEEf7sG9Q_r-iS1D_LqSuhT6H-t21ctNTWeUFGoleO9H2p6_LkVAZ2M3WJuRWQAtss9nBHzAm3HxZOXuimVYZzULa6wLCRHDLwl3ESCGHP5oQ9Hyxmo6OQNkTY_XD_rK2yDhgfDcxMJP9PD1Ery1Ry_uBKXCNomdZaq1);
+  background-size: cover;
+  background-position: center 25%;
+}
+
+.glass-panel, .glass-panel-light {
+  background: rgba(18, 26, 21, 0.68);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+.glass-nav-pill, .glass-nav-pill-light {
+  background: rgba(14, 21, 17, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.phone-horizontal-frame, .phone-horizontal-frame-light {
+  border: 10px solid #1a241e;
+  border-radius: 40px;
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.9), 0 0 45px rgba(168, 230, 0, 0.12);
+}

@@ -1,0 +1,10 @@
+{
+  "name": "saas-de-recrutement-root",
+  "private": true,
+  "scripts": {
+    "dev": "npm run dev --prefix player-recruiter-saas",
+    "build": "npm run build --prefix player-recruiter-saas",
+    "preview": "npm run preview --prefix player-recruiter-saas",
+    "lint": "npm run lint --prefix player-recruiter-saas"
+  }
+}
