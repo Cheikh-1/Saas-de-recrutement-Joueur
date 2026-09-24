@@ -108,7 +108,7 @@ export const PlayerProfilePreview: React.FC<PlayerProfilePreviewProps> = ({
           </div>
           <div>
             <span className="text-xs uppercase font-bold text-on-surface-variant tracking-wider flex items-center gap-1 font-sans">
-              <span className="material-symbols-outlined text-[16px] text-primary">badge</span>
+              <span className="material-symbols-outlined text-[16px] text-primary">person</span>
               Aperçu de la fiche
             </span>
             <h3 className="text-xl sm:text-2xl font-bold text-primary font-sans mt-0.5">

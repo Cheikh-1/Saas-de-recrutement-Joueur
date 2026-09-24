@@ -13,6 +13,7 @@ import { AcademyDashboard } from './features/academy/AcademyDashboard'
 import { AdminOverview } from './features/admin/AdminOverview'
 import { AcademyManagement } from './features/admin/AcademyManagement'
 import { PlayerModeration } from './features/admin/PlayerModeration'
+import { PublicPlayerDetailPage } from './features/players/PublicPlayerDetailPage'
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignUpPage />} />
       <Route path="/unauthorized" element={<UnauthorizedPage />} />
+      <Route path="/players/public/:id" element={<PublicPlayerDetailPage />} />
 
       {/* Admin Protected Routes */}
       <Route

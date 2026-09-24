@@ -90,3 +90,18 @@ h1, h2, h3, h4, h5, h6, .font-heading, .font-display, [class*="font-display"] {
   border-radius: 40px;
   box-shadow: 0 30px 100px rgba(0, 0, 0, 0.9), 0 0 45px rgba(168, 230, 0, 0.12);
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}

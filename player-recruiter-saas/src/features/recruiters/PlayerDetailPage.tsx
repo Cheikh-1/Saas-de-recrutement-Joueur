@@ -87,6 +87,44 @@ export function PlayerDetailPage() {
         } else {
           setPlayer(data)
           await checkFavoriteStatus()
+
+          // Enregistrement d'une vue réelle dans profile_views (une seule fois par session de navigation)
+          if (user && data?.id && user.id !== (data as any).owner_id) {
+            const sessionKey = `teranga_viewed_${data.id}_${user.id}`
+            let alreadyViewed = false
+            try {
+              alreadyViewed = sessionStorage.getItem(sessionKey) === 'true'
+            } catch {
+              alreadyViewed = false
+            }
+
+            if (!alreadyViewed) {
+              try {
+                sessionStorage.setItem(sessionKey, 'true')
+              } catch {
+                // Ignore storage error in private mode
+              }
+
+              supabase
+                .from('profile_views')
+                .insert([
+                  {
+                    player_id: data.id,
+                    recruiter_id: user.id,
+                  },
+                ])
+                .then(
+                  ({ error: viewErr }) => {
+                    if (viewErr) {
+                      console.error('Erreur enregistrement vue profil:', viewErr)
+                    }
+                  },
+                  (err: unknown) => {
+                    console.error('Exception enregistrement vue:', err)
+                  }
+                )
+            }
+          }
         }
       } catch (err) {
         console.error('Erreur lors de la récupération de la fiche joueur:', err)

@@ -339,8 +339,8 @@ export const PlayerContactRequests: React.FC<PlayerContactRequestsProps> = ({
       <div className="flex items-center justify-between border-b border-outline-variant/20 pb-4">
         <div>
           <h3 className="text-lg font-bold text-primary font-sans flex items-center gap-2">
-            <span className="material-symbols-outlined text-[22px] text-secondary">
-              mark_email_unread
+            <span className="material-symbols-outlined text-[22px] text-primary">
+              mail
             </span>
             <span>Dernières demandes de contact</span>
           </h3>
